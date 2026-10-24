@@ -91,8 +91,8 @@ const areaBar = [
           <ul>
             {horarios.map((item) => (
               <li>
-                <span>{item.dia}</span>
-                <strong>{item.hora}</strong>
+                <span class="dia-texto">{item.dia}</span>
+                <strong class="hora-texto">{item.hora}</strong>
               </li>
             ))}
           </ul>
@@ -494,4 +494,187 @@ const areaBar = [
     width: 100%;
     height: 120px;
     border-radius: 8px;
-    overflow:
+    overflow: hidden;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    padding: 8px;
+  }
+
+  .bar-img-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .bar-item span {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-white);
+  }
+
+  .map-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .map-action {
+    text-align: right;
+  }
+
+  .elegant-footer {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 35px 20px;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .footer-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .footer-logo-center {
+    height: 110px;
+    width: auto;
+    object-fit: contain;
+    mix-blend-mode: screen;
+  }
+
+  .footer-motto {
+    color: var(--orange-brand);
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
+  .footer-social-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-social-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+
+  .dot { color: var(--border-color); }
+  .copy-text {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+  }
+
+  /* =========================================================
+     AJUSTES RESPONSIVOS PARA MÓVILES Y TABLETS (MEJORADOS)
+     ========================================================= */
+
+  @media (max-width: 900px) {
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .bar-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 680px) {
+    body {
+      padding: 8px;
+    }
+
+    .navbar {
+      flex-direction: column;
+      gap: 12px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .nav-links {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 12px;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+    }
+
+    .hero {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 16px;
+      padding: 24px 16px;
+      min-height: auto;
+    }
+
+    .hero-content h1 {
+      font-size: 1.6rem;
+    }
+
+    .hero-content p {
+      font-size: 0.9rem;
+    }
+
+    .hero-card, .btn-orange {
+      width: 100%;
+    }
+
+    .planes-container {
+      grid-template-columns: 1fr;
+    }
+
+    .grid-gallery-3 {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-item {
+      height: 160px;
+    }
+
+    .bar-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .bar-img-box {
+      height: 90px;
+    }
+
+    .map-action {
+      text-align: center;
+    }
+
+    /* Corrección clave para que en móviles los horarios salgan ordenados */
+    .horario-card li {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+      padding: 10px 0;
+    }
+
+    .horario-card li span {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .horario-card li strong {
+      color: var(--orange-brand);
+      font-size: 0.95rem;
+    }
+
+    .footer-logo-center {
+      height: 80px;
+    }
+  }
+</style>
