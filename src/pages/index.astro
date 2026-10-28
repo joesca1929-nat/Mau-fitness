@@ -1,16 +1,4 @@
 ---
-const planes = {
-  normal: [
-    { periodo: "Mensual", precio: "$20" },
-    { periodo: "Trimestral", precio: "$40" }
-  ],
-  estudiantes: [
-    { periodo: "Diario", precio: "$1" },
-    { periodo: "Mensual", precio: "$15" },
-    { periodo: "Trimestral", precio: "$25" }
-  ]
-};
-
 const rutinas = [
   {
     id: "fuerza",
@@ -95,7 +83,7 @@ const horarios = [
   </head>
   <body>
     <main class="container">
-      <!-- Header limpio sin menú de navegación y con logo prominente -->
+      <!-- Cabecera con Logo Súper Grande -->
       <header class="navbar">
         <div class="logo-container">
           <img src="/logo.png" alt="MAU FITNESS Logo" class="brand-logo" />
@@ -123,31 +111,59 @@ const horarios = [
         </div>
       </section>
 
-      <!-- Planes y Precios -->
+      <!-- Planes Interactivos (Solo muestra el nombre y al hacer clic muestra los valores) -->
       <section class="section" id="planes">
         <h2>PLANES Y PRECIOS</h2>
-        <p class="subtitle">Elige el plan que mejor se adapte a ti</p>
-        <div class="planes-container">
-          <div class="plan normal">
-            <h3>PLAN NORMAL</h3>
-            {planes.normal.map((p) => (
-              <div class="plan-row"><span>{p.periodo}</span> <strong>{p.precio}</strong></div>
-            ))}
+        <p class="subtitle">Haz clic en un plan para ver sus valores y tarifas</p>
+        <div class="planes-grid">
+          <div class="plan-card-main" onclick="openPlanModal('normal')">
+            <div class="plan-content-box">
+              <h3>PLAN NORMAL</h3>
+              <p>Tarifas generales para adultos y entrenamientos regulares.</p>
+              <span class="btn-ver-valores">Ver valores ➔</span>
+            </div>
           </div>
-          <div class="plan estudiantes">
-            <h3>PLAN ESTUDIANTES</h3>
-            {planes.estudiantes.map((p) => (
-              <div class="plan-row"><span>{p.periodo}</span> <strong>{p.precio}</strong></div>
-            ))}
+          <div class="plan-card-main" onclick="openPlanModal('estudiantes')">
+            <div class="plan-content-box">
+              <h3>PLAN ESTUDIANTES</h3>
+              <p>Tarifas especiales y accesibles con credencial estudiantil.</p>
+              <span class="btn-ver-valores">Ver valores ➔</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Plan Normal -->
+        <div id="modal-plan-normal" class="modal-overlay" onclick="closePlanModal('normal')">
+          <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closePlanModal('normal')">✕</button>
+            <h3 class="modal-title">PLAN NORMAL - Valores</h3>
+            <p class="subtitle">Elige el periodo que prefieras</p>
+            <div class="modal-precios-list">
+              <div class="modal-row"><span>Mensual</span> <strong>$20</strong></div>
+              <div class="modal-row"><span>Trimestral</span> <strong>$40</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Plan Estudiantes -->
+        <div id="modal-plan-estudiantes" class="modal-overlay" onclick="closePlanModal('estudiantes')">
+          <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closePlanModal('estudiantes')">✕</button>
+            <h3 class="modal-title">PLAN ESTUDIANTES - Valores</h3>
+            <p class="subtitle">Tarifas preferenciales para estudiantes</p>
+            <div class="modal-precios-list">
+              <div class="modal-row"><span>Diario</span> <strong>$1</strong></div>
+              <div class="modal-row"><span>Mensual</span> <strong>$15</strong></div>
+              <div class="modal-row"><span>Trimestral</span> <strong>$25</strong></div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- Rutinas Interactivas (Entrar para ver imágenes y descripción) -->
+      <!-- Rutinas Interactivas -->
       <section class="section" id="rutinas">
         <h2>RUTINAS</h2>
         <p class="subtitle">Haz clic en una categoría para explorar el entrenamiento</p>
-        
         <div class="rutinas-grid">
           {rutinas.map((item) => (
             <div class="rutina-card" onclick={`openRutinaModal('${item.id}')`}>
@@ -161,7 +177,6 @@ const horarios = [
           ))}
         </div>
 
-        <!-- Modales / Vistas de Detalle para Rutinas -->
         {rutinas.map((item) => (
           <div id={`modal-${item.id}`} class="modal-overlay" onclick={`closeRutinaModal('${item.id}')`}>
             <div class="modal-content" onclick="event.stopPropagation()">
@@ -181,11 +196,10 @@ const horarios = [
         ))}
       </section>
 
-      <!-- Bebidas / Bar (Categorizado) -->
+      <!-- Bebidas y Suplementos -->
       <section class="section" id="bebidas">
         <h2>BEBIDAS Y SUPLEMENTOS</h2>
         <p class="subtitle">Selecciona una categoría para conocer nuestras marcas disponibles</p>
-        
         <div class="bebidas-grid">
           {bebidas.map((cat) => (
             <div class="bebida-card" onclick={`openBebidaModal('${cat.id}')`}>
@@ -200,7 +214,6 @@ const horarios = [
           ))}
         </div>
 
-        <!-- Modales / Vistas de Detalle para Bebidas -->
         {bebidas.map((cat) => (
           <div id={`modal-bebida-${cat.id}`} class="modal-overlay" onclick={`closeBebidaModal('${cat.id}')`}>
             <div class="modal-content" onclick="event.stopPropagation()">
@@ -277,8 +290,16 @@ const horarios = [
       </footer>
     </main>
 
-    <!-- Script sencillo para interactividad en cliente -->
+    <!-- Script de Modales -->
     <script is:inline>
+      function openPlanModal(id) {
+        document.getElementById('modal-plan-' + id).classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      function closePlanModal(id) {
+        document.getElementById('modal-plan-' + id).classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
       function openRutinaModal(id) {
         document.getElementById('modal-' + id).classList.add('active');
         document.body.style.overflow = 'hidden';
@@ -316,7 +337,7 @@ const horarios = [
   .container { max-width: 1200px; margin: 0 auto; }
   .orange { color: var(--orange-brand); }
 
-  /* Navbar */
+  /* Navbar con Logo Súper Grande */
   .navbar {
     display: flex;
     justify-content: space-between;
@@ -328,7 +349,7 @@ const horarios = [
     border: 1px solid var(--border-color);
   }
   .brand-logo {
-    height: 95px; /* Logo ampliado significativamente */
+    height: 110px; /* Logo aumentado considerablemente */
     width: auto;
     object-fit: contain;
     mix-blend-mode: screen;
@@ -359,12 +380,17 @@ const horarios = [
   .section h2, .card h2 { font-size: 1.2rem; font-weight: 800; color: var(--orange-brand); margin-bottom: 4px; }
   .subtitle { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 16px; }
 
-  /* Planes */
-  .planes-container { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .plan { background: var(--card-inner); border-radius: 12px; padding: 16px; border: 1px solid var(--border-color); border-top: 3px solid var(--orange-brand); }
-  .plan h3 { font-size: 0.88rem; font-weight: 800; margin-bottom: 12px; }
-  .plan-row { display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 8px; color: var(--text-muted); }
-  .plan-row strong { color: var(--orange-brand); }
+  /* Planes Interactivos */
+  .planes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .plan-card-main { background: var(--card-inner); border-radius: 12px; padding: 20px; border: 1px solid var(--border-color); border-top: 3px solid var(--orange-brand); cursor: pointer; transition: transform 0.2s ease; }
+  .plan-card-main:hover { transform: translateY(-3px); }
+  .plan-content-box h3 { font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+  .plan-content-box p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px; }
+  .btn-ver-valores { color: var(--orange-brand); font-size: 0.88rem; font-weight: 700; }
+
+  .modal-precios-list { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+  .modal-row { display: flex; justify-content: space-between; background: var(--card-inner); padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border-color); font-size: 0.95rem; color: var(--text-muted); }
+  .modal-row strong { color: var(--orange-brand); }
 
   /* Rutinas Grid */
   .rutinas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -385,7 +411,7 @@ const horarios = [
   /* Modales / Popups de detalle */
   .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); display: none; align-items: center; justify-content: center; z-index: 9999; padding: 20px; }
   .modal-overlay.active { display: flex; }
-  .modal-content { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; max-width: 650px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 24px; position: relative; }
+  .modal-content { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; max-width: 600px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 24px; position: relative; }
   .modal-close { position: absolute; top: 16px; right: 16px; background: var(--card-inner); border: 1px solid var(--border-color); color: #fff; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-weight: bold; }
   .modal-title { color: var(--orange-brand); font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; }
   .modal-desc { color: var(--text-white); font-size: 0.92rem; line-height: 1.5; margin-bottom: 20px; }
@@ -416,10 +442,10 @@ const horarios = [
 
   @media (max-width: 680px) {
     body { padding: 10px; }
-    .brand-logo { height: 70px; }
+    .brand-logo { height: 85px; }
     .hero { flex-direction: column; gap: 20px; padding: 24px 16px; }
     .hero-content h1 { font-size: 1.8rem; }
-    .planes-container, .rutinas-grid, .bebidas-grid { grid-template-columns: 1fr; }
+    .planes-grid, .rutinas-grid, .bebidas-grid { grid-template-columns: 1fr; }
     .modal-gallery { grid-template-columns: 1fr; }
     .horario-card li { flex-direction: column; align-items: flex-start; gap: 4px; }
   }
