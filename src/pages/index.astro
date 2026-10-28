@@ -83,22 +83,22 @@ const horarios = [
   </head>
   <body>
     <main class="container">
-      <!-- Cabecera -->
-      <header class="navbar">
+      <!-- Cabecera unificada con Logo Centrado y Redes Abajo -->
+      <header class="header-unificado">
         <div class="logo-container">
           <img src="/logo.png" alt="MAU FITNESS Logo" class="brand-logo" />
         </div>
-        <div class="social-icons-top">
-          <a href="https://www.instagram.com/maufitness.co/" target="_blank" rel="noopener noreferrer" title="Instagram">
+        <div class="social-icons-center">
+          <a href="https://www.instagram.com/maufitness.co/" target="_blank" rel="noopener noreferrer" title="Instagram" class="social-btn">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
           </a>
-          <a href="https://www.tiktok.com/@maufitness.co" target="_blank" rel="noopener noreferrer" title="TikTok">
+          <a href="https://www.tiktok.com/@maufitness.co" target="_blank" rel="noopener noreferrer" title="TikTok" class="social-btn">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-5.2-1.74 2.89 2.89 0 0 1 2.31-2.82V7.65a6.34 6.34 0 0 0-5.36 6.3 6.34 6.34 0 0 0 10.82 4.48c1.64-1.64 2.55-3.87 2.55-6.22V8.92a8.28 8.28 0 0 0 4.86 1.57V7.05a4.84 4.84 0 0 1-2.76-.36z"></path></svg>
           </a>
         </div>
       </header>
 
-      <!-- Hero Principal -->
+      <!-- Hero Principal Integrado -->
       <section class="hero">
         <div class="hero-content">
           <h1>DISCIPLINA HOY, <br /><span class="orange">RESULTADOS MAÑANA</span></h1>
@@ -337,42 +337,89 @@ const horarios = [
   .container { max-width: 1200px; margin: 0 auto; }
   .orange { color: var(--orange-brand); }
 
-  /* Navbar */
-  .navbar {
+  /* Cabecera Unificada y Centrada */
+  .header-unificado {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 24px 32px;
+    justify-content: center;
+    padding: 30px 20px;
     background: var(--card-bg);
     border-radius: 16px;
     margin-bottom: 20px;
     border: 1px solid var(--border-color);
-    min-height: 320px;
+    gap: 20px;
   }
   .brand-logo {
-    height: 280px;
-    max-height: 80vh;
+    height: 240px;
+    max-height: 70vh;
     width: auto;
     object-fit: contain;
     mix-blend-mode: screen;
   }
-  .social-icons-top { display: flex; gap: 12px; }
-  .social-icons-top a {
-    color: var(--text-white);
-    display: flex; align-items: center; justify-content: center;
-    width: 48px; height: 48px; background: var(--card-inner);
-    border-radius: 50%; border: 1px solid var(--border-color);
+  .social-icons-center {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
   }
 
-  /* Hero */
+  /* Efectos interactivos para redes sociales (Hover y Active de pulsación) */
+  .social-btn {
+    color: var(--text-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--card-inner);
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+  }
+  .social-btn:hover {
+    background: var(--orange-brand);
+    color: #000;
+    border-color: var(--orange-brand);
+    transform: translateY(-3px) scale(1.05);
+  }
+  .social-btn:active {
+    transform: translateY(1px) scale(0.95);
+  }
+
+  /* Hero Principal con Efecto Activo en el botón */
   .hero {
     background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.95)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop') center/cover;
-    border-radius: 16px; padding: 40px 30px; display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 40px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
   }
   .hero-content h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; }
   .hero-content p { color: var(--text-muted); }
+
   .btn-orange {
-    background: var(--orange-brand); color: #000; padding: 12px 24px; border-radius: 24px; font-weight: 800; text-decoration: none; display: inline-block; text-align: center;
+    background: var(--orange-brand);
+    color: #000;
+    padding: 14px 28px;
+    border-radius: 24px;
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(255, 165, 0, 0.3);
+  }
+  .btn-orange:hover {
+    background: var(--orange-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 165, 0, 0.5);
+  }
+  .btn-orange:active {
+    transform: translateY(2px) scale(0.97);
+    box-shadow: 0 2px 8px rgba(255, 165, 0, 0.2);
   }
 
   /* Secciones generales */
@@ -444,8 +491,8 @@ const horarios = [
 
   @media (max-width: 680px) {
     body { padding: 10px; }
-    .navbar { min-height: 220px; padding: 16px; }
-    .brand-logo { height: 180px; }
+    .header-unificado { padding: 20px 16px; }
+    .brand-logo { height: 160px; }
     .hero { flex-direction: column; gap: 20px; padding: 24px 16px; }
     .hero-content h1 { font-size: 1.8rem; }
     .planes-grid, .rutinas-grid, .bebidas-grid { grid-template-columns: 1fr; }
