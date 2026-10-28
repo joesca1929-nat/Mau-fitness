@@ -83,7 +83,7 @@ const horarios = [
   </head>
   <body>
     <main class="container">
-      <!-- Cabecera con Logo Extra Grande -->
+      <!-- Cabecera con Logo Enorme -->
       <header class="navbar">
         <div class="logo-container">
           <img src="/logo.png" alt="MAU FITNESS Logo" class="brand-logo" />
@@ -337,19 +337,19 @@ const horarios = [
   .container { max-width: 1200px; margin: 0 auto; }
   .orange { color: var(--orange-brand); }
 
-  /* Navbar con Logo Extra Grande */
+  /* Navbar con Logo el Doble de Grande */
   .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 28px;
+    padding: 24px 32px;
     background: var(--card-bg);
     border-radius: 16px;
     margin-bottom: 20px;
     border: 1px solid var(--border-color);
   }
   .brand-logo {
-    height: 140px; /* Logo llevado a un tamaño mucho más prominente */
+    height: 280px; /* Logo imponente y el doble de grande */
     width: auto;
     object-fit: contain;
     mix-blend-mode: screen;
@@ -413,40 +413,4 @@ const horarios = [
   .modal-overlay.active { display: flex; }
   .modal-content { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; max-width: 600px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 24px; position: relative; }
   .modal-close { position: absolute; top: 16px; right: 16px; background: var(--card-inner); border: 1px solid var(--border-color); color: #fff; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-weight: bold; }
-  .modal-title { color: var(--orange-brand); font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; }
-  .modal-desc { color: var(--text-white); font-size: 0.92rem; line-height: 1.5; margin-bottom: 20px; }
-  .modal-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
-  .gallery-img-box img { width: 100%; height: 110px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); }
-  
-  .marcas-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 14px; }
-  .marca-item { background: var(--card-inner); border-radius: 10px; padding: 14px; border: 1px solid var(--border-color); text-align: left; }
-  .marca-img-box { width: 100%; height: 140px; background: #fff; border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 10px; margin-bottom: 10px; }
-  .marca-img-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
-  .marca-item strong { color: var(--orange-brand); display: block; margin-bottom: 4px; }
-  .marca-item p { color: var(--text-muted); font-size: 0.85rem; }
-
-  /* Horarios */
-  .horario-card ul { list-style: none; }
-  .horario-card li { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border-color); font-size: 0.92rem; }
-  .esperamos { margin-top: 16px; color: var(--orange-brand); font-style: italic; font-weight: 700; }
-
-  /* Footer */
-  .elegant-footer { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 35px 20px; text-align: center; }
-  .footer-center { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-  .footer-logo-center { height: 100px; width: auto; object-fit: contain; mix-blend-mode: screen; }
-  .footer-motto { color: var(--orange-brand); font-weight: 700; }
-  .footer-social-links { display: flex; gap: 10px; }
-  .footer-social-links a { color: var(--text-muted); text-decoration: none; font-size: 0.88rem; }
-  .dot { color: var(--border-color); }
-  .copy-text { color: var(--text-muted); font-size: 0.78rem; }
-
-  @media (max-width: 680px) {
-    body { padding: 10px; }
-    .brand-logo { height: 105px; } /* Adaptado también para pantallas de celular de forma muy vistosa */
-    .hero { flex-direction: column; gap: 20px; padding: 24px 16px; }
-    .hero-content h1 { font-size: 1.8rem; }
-    .planes-grid, .rutinas-grid, .bebidas-grid { grid-template-columns: 1fr; }
-    .modal-gallery { grid-template-columns: 1fr; }
-    .horario-card li { flex-direction: column; align-items: flex-start; gap: 4px; }
-  }
-</style>
+  .modal
