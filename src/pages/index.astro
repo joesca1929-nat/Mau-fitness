@@ -83,7 +83,7 @@ const horarios = [
   </head>
   <body>
     <main class="container">
-      <!-- Cabecera con Logo Súper Grande -->
+      <!-- Cabecera con Logo Extra Grande -->
       <header class="navbar">
         <div class="logo-container">
           <img src="/logo.png" alt="MAU FITNESS Logo" class="brand-logo" />
@@ -111,7 +111,7 @@ const horarios = [
         </div>
       </section>
 
-      <!-- Planes Interactivos (Solo muestra el nombre y al hacer clic muestra los valores) -->
+      <!-- Planes Interactivos -->
       <section class="section" id="planes">
         <h2>PLANES Y PRECIOS</h2>
         <p class="subtitle">Haz clic en un plan para ver sus valores y tarifas</p>
@@ -337,19 +337,19 @@ const horarios = [
   .container { max-width: 1200px; margin: 0 auto; }
   .orange { color: var(--orange-brand); }
 
-  /* Navbar con Logo Súper Grande */
+  /* Navbar con Logo Extra Grande */
   .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 24px;
+    padding: 20px 28px;
     background: var(--card-bg);
     border-radius: 16px;
     margin-bottom: 20px;
     border: 1px solid var(--border-color);
   }
   .brand-logo {
-    height: 110px; /* Logo aumentado considerablemente */
+    height: 140px; /* Logo llevado a un tamaño mucho más prominente */
     width: auto;
     object-fit: contain;
     mix-blend-mode: screen;
@@ -442,7 +442,7 @@ const horarios = [
 
   @media (max-width: 680px) {
     body { padding: 10px; }
-    .brand-logo { height: 85px; }
+    .brand-logo { height: 105px; } /* Adaptado también para pantallas de celular de forma muy vistosa */
     .hero { flex-direction: column; gap: 20px; padding: 24px 16px; }
     .hero-content h1 { font-size: 1.8rem; }
     .planes-grid, .rutinas-grid, .bebidas-grid { grid-template-columns: 1fr; }
