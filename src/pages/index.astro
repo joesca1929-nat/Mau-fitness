@@ -1,10 +1,4 @@
 ---
-const horarios = [
-  { dia: "Lunes - Viernes", hora: "05:00 a 09:30 / 14:30 a 22:00" },
-  { dia: "Sábados", hora: "06:00 a 09:30 (Tarde cerrado)" },
-  { dia: "Domingos", hora: "Cerrado" }
-];
-
 const planes = {
   normal: [
     { periodo: "Mensual", precio: "$20" },
@@ -18,17 +12,74 @@ const planes = {
 };
 
 const rutinas = [
-  { classImg: "fuerza-bg", nombre: "Fuerza" },
-  { classImg: "cardio-bg", nombre: "Cardio" },
-  { classImg: "tonificacion-bg", nombre: "Tonificación" }
+  {
+    id: "fuerza",
+    nombre: "Fuerza",
+    desc: "Una rutina de fuerza efectiva se basa en ejercicios multiarticulares que trabajan varios grupos musculares al mismo tiempo, utilizando una sobrecarga progresiva (aumentar el peso o las repeticiones con el tiempo) y un descanso adecuado.",
+    portada: "https://content21.sabervivirtv.com/medio/2024/12/12/entrenamiento-fuerza_f5ec0d70_241212170359_990x660.webp",
+    galeria: [
+      "https://content21.sabervivirtv.com/medio/2024/12/12/entrenamiento-fuerza_f5ec0d70_241212170359_990x660.webp",
+      "https://media.istockphoto.com/id/2027278401/es/foto/atleta-femenina-feliz-teniendo-entrenamiento-de-fuerza-en-un-gimnasio.jpg?s=612x612&w=0&k=20&c=heoz38mUUBBE0OHHIh_AB3EwTEd4ffYAZlYGvleSTB4=",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZP7qM5KWGalej-8t5fqPrwvoAqZgkqn-SCAmRsnjCz5giNx5q-QW1L2I&s=10"
+    ]
+  },
+  {
+    id: "cardio",
+    nombre: "Cardio",
+    desc: "El cardio es un tipo de ejercicio físico que ayuda a mejorar la resistencia, fortalecer el corazón y los pulmones, y quemar calorías. Se realiza mediante actividades como correr, saltar la cuerda, andar en bicicleta o caminar a paso rápido.",
+    portada: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpj6D6A2yJqc3PQSfwg5-1kB8CL6VusOxer0ttCg8lwg&s=10",
+    galeria: [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpj6D6A2yJqc3PQSfwg5-1kB8CL6VusOxer0ttCg8lwg&s=10",
+      "https://media.istockphoto.com/id/1132086660/es/foto/vista-lateral-de-la-mujer-musculosa-hermosa-corriendo-en-la-cinta.jpg?s=612x612&w=0&k=20&c=NVS7gyHC9_XNjGHDorwxiQLk11bFUBz6sxMIlS8El1s=",
+      "https://media.istockphoto.com/id/1289416200/es/foto/mujer-atl%C3%A9tica-haciendo-el-entrenamiento-cardiovascular-de-cuerpo-entero.jpg?s=1024x1024&w=is&k=20&c=MFv6W5cmQk_IjZCCPCR_h8uKb3fBx0OTAL-2D6T1sVU="
+    ]
+  },
+  {
+    id: "tonificacion",
+    nombre: "Tonificación",
+    desc: "La tonificación es un tipo de ejercicio físico que ayuda a fortalecer los músculos y mejorar la firmeza del cuerpo. Se realiza mediante ejercicios con pesas, máquinas o el propio peso corporal, como sentadillas, abdominales y flexiones.",
+    portada: "https://media.istockphoto.com/id/2027281054/es/foto/joven-deportista-haciendo-abdominales-laterales-con-bal%C3%B3n-medicinal-mientras-hace-ejercicio-en.jpg?s=612x612&w=0&k=20&c=GMJNds-07Fj5FV_waHIYzRIvba49nsY4zcPNqADaEno=",
+    galeria: [
+      "https://media.istockphoto.com/id/2027281054/es/foto/joven-deportista-haciendo-abdominales-laterales-con-bal%C3%B3n-medicinal-mientras-hace-ejercicio-en.jpg?s=612x612&w=0&k=20&c=GMJNds-07Fj5FV_waHIYzRIvba49nsY4zcPNqADaEno=",
+      "https://clinicadefitness.com/wp-content/uploads/2025/05/Entrenador-guiando-rutina-con-electroestimulacion-%E2%80%93-tonificacion-muscular-1024x683.webp",
+      "https://media.revistagq.com/photos/672b9984cf8d8342b9efd35a/16:9/w_2560%2Cc_limit/1141400386"
+    ]
+  }
 ];
 
-const areaBar = [
-  { nombre: "Agua Vilcagua", img: "https://vilcagua.com.ec/wp-content/uploads/2023/07/vilcagua-500ml-1.jpeg" },
-  { nombre: "Proteína Carnivor", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQc5UXUdR2ttvTYxXSgQ55CXSUoDSFR9DLwfr6XHANrw&s=10" },
-  { nombre: "Creatina Beast Bites", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTvSM_8TYk7Q53bHd19kRWG_t-fxS0WmU8sMkr030_0w&s=10" },
-  { nombre: "Creatina Monohidratada RC", img: "https://activelife.ec/wp-content/uploads/2024/08/ronnie-coleman-creatina-120.jpg" },
-  { nombre: "Café", img: "https://www.shutterstock.com/image-photo/espresso-coffee-transparent-cup-260nw-2512810809.jpg" }
+const bebidas = [
+  {
+    id: "agua",
+    nombre: "Agua",
+    img: "https://vilcagua.com.ec/wp-content/uploads/2023/07/vilcagua-500ml-1.jpeg",
+    marcas: [
+      { nombre: "Agua Vilcagua 500ml", img: "https://vilcagua.com.ec/wp-content/uploads/2023/07/vilcagua-500ml-1.jpeg", desc: "Hidratación pura y fresca para tu sesión de entrenamiento." }
+    ]
+  },
+  {
+    id: "proteinas",
+    nombre: "Proteínas",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQc5UXUdR2ttvTYxXSgQ55CXSUoDSFR9DLwfr6XHANrw&s=10",
+    marcas: [
+      { nombre: "Proteína Carnivor", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQc5UXUdR2ttvTYxXSgQ55CXSUoDSFR9DLwfr6XHANrw&s=10", desc: "Proteína aislada de carne vacuna para máxima recuperación muscular." }
+    ]
+  },
+  {
+    id: "preentrenos",
+    nombre: "Pre-entrenos y Creatina",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTvSM_8TYk7Q53bHd19kRWG_t-fxS0WmU8sMkr030_0w&s=10",
+    marcas: [
+      { nombre: "Creatina Beast Bites", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTvSM_8TYk7Q53bHd19kRWG_t-fxS0WmU8sMkr030_0w&s=10", desc: "Gominolas masticables de creatina para potenciar tu energía." },
+      { nombre: "Creatina Monohidratada RC", img: "https://activelife.ec/wp-content/uploads/2024/08/ronnie-coleman-creatina-120.jpg", desc: "Creatina de Ronnie Coleman para fuerza y rendimiento explosivo." },
+      { nombre: "Café de Especialidad", img: "https://www.shutterstock.com/image-photo/espresso-coffee-transparent-cup-260nw-2512810809.jpg", desc: "Estimulante natural previo a tu entrenamiento." }
+    ]
+  }
+];
+
+const horarios = [
+  { dia: "Lunes - Viernes", hora: "05:00 a 09:30 / 14:30 a 22:00" },
+  { dia: "Sábados", hora: "06:00 a 09:30 (Tarde cerrado)" },
+  { dia: "Domingos", hora: "Cerrado" }
 ];
 ---
 
@@ -44,34 +95,22 @@ const areaBar = [
   </head>
   <body>
     <main class="container">
+      <!-- Header limpio sin menú de navegación y con logo prominente -->
       <header class="navbar">
         <div class="logo-container">
           <img src="/logo.png" alt="MAU FITNESS Logo" class="brand-logo" />
         </div>
-        <nav class="nav-links">
-          <a href="#" class="active">Inicio</a>
-          <a href="#horarios">Horario</a>
-          <a href="#planes">Planes</a>
-          <a href="#rutinas">Rutinas</a>
-          <a href="#bar">Bar</a>
-          <a href="#ubicacion">Ubicación</a>
-        </nav>
         <div class="social-icons-top">
           <a href="https://www.instagram.com/maufitness.co/" target="_blank" rel="noopener noreferrer" title="Instagram">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
           </a>
           <a href="https://www.tiktok.com/@maufitness.co" target="_blank" rel="noopener noreferrer" title="TikTok">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-5.2-1.74 2.89 2.89 0 0 1 2.31-2.82V7.65a6.34 6.34 0 0 0-5.36 6.3 6.34 6.34 0 0 0 10.82 4.48c1.64-1.64 2.55-3.87 2.55-6.22V8.92a8.28 8.28 0 0 0 4.86 1.57V7.05a4.84 4.84 0 0 1-2.76-.36z"></path>
-            </svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-5.2-1.74 2.89 2.89 0 0 1 2.31-2.82V7.65a6.34 6.34 0 0 0-5.36 6.3 6.34 6.34 0 0 0 10.82 4.48c1.64-1.64 2.55-3.87 2.55-6.22V8.92a8.28 8.28 0 0 0 4.86 1.57V7.05a4.84 4.84 0 0 1-2.76-.36z"></path></svg>
           </a>
         </div>
       </header>
 
+      <!-- Hero Principal -->
       <section class="hero">
         <div class="hero-content">
           <h1>DISCIPLINA HOY, <br /><span class="orange">RESULTADOS MAÑANA</span></h1>
@@ -84,68 +123,122 @@ const areaBar = [
         </div>
       </section>
 
-      <section class="info-grid">
-        <div class="card horario-card" id="horarios">
-          <h2>HORARIO</h2>
-          <p class="subtitle">Nuestro horario de atención</p>
-          <ul>
-            {horarios.map((item) => (
-              <li>
-                <span class="dia-texto">{item.dia}</span>
-                <strong class="hora-texto">{item.hora}</strong>
-              </li>
+      <!-- Planes y Precios -->
+      <section class="section" id="planes">
+        <h2>PLANES Y PRECIOS</h2>
+        <p class="subtitle">Elige el plan que mejor se adapte a ti</p>
+        <div class="planes-container">
+          <div class="plan normal">
+            <h3>PLAN NORMAL</h3>
+            {planes.normal.map((p) => (
+              <div class="plan-row"><span>{p.periodo}</span> <strong>{p.precio}</strong></div>
             ))}
-          </ul>
-          <div class="esperamos">¡Te esperamos!</div>
-        </div>
-
-        <div class="card precios-card" id="planes">
-          <h2>PLANES Y PRECIOS</h2>
-          <p class="subtitle">Elige el plan que mejor se adapte a ti</p>
-          <div class="planes-container">
-            <div class="plan normal">
-              <h3>PLAN NORMAL</h3>
-              {planes.normal.map((p) => (
-                <div class="plan-row"><span>{p.periodo}</span> <strong>{p.precio}</strong></div>
-              ))}
-            </div>
-            <div class="plan estudiantes">
-              <h3>PLAN ESTUDIANTES</h3>
-              {planes.estudiantes.map((p) => (
-                <div class="plan-row"><span>{p.periodo}</span> <strong>{p.precio}</strong></div>
-              ))}
-            </div>
+          </div>
+          <div class="plan estudiantes">
+            <h3>PLAN ESTUDIANTES</h3>
+            {planes.estudiantes.map((p) => (
+              <div class="plan-row"><span>{p.periodo}</span> <strong>{p.precio}</strong></div>
+            ))}
           </div>
         </div>
       </section>
 
+      <!-- Rutinas Interactivas (Entrar para ver imágenes y descripción) -->
       <section class="section" id="rutinas">
         <h2>RUTINAS</h2>
-        <p class="subtitle">Entrena con objetivos</p>
-        <div class="grid-gallery-3">
+        <p class="subtitle">Haz clic en una categoría para explorar el entrenamiento</p>
+        
+        <div class="rutinas-grid">
           {rutinas.map((item) => (
-            <div class={`gallery-item ${item.classImg}`}>
-              <div class="overlay-text">{item.nombre}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section class="section" id="bar">
-        <h2>ÁREA DE BAR</h2>
-        <p class="subtitle">Recarga energías e hidrátate antes o después de entrenar</p>
-        <div class="bar-grid">
-          {areaBar.map((item) => (
-            <div class="bar-item">
-              <div class="bar-img-box">
-                <img src={item.img} alt={item.nombre} />
+            <div class="rutina-card" onclick={`openRutinaModal('${item.id}')`}>
+              <div class="rutina-img-bg" style={`background-image: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.2)), url('${item.portada}')`}>
+                <span class="rutina-badge">Toca para ver ➔</span>
+                <div class="rutina-title-box">
+                  <h3>{item.nombre}</h3>
+                </div>
               </div>
-              <span>{item.nombre}</span>
             </div>
           ))}
         </div>
+
+        <!-- Modales / Vistas de Detalle para Rutinas -->
+        {rutinas.map((item) => (
+          <div id={`modal-${item.id}`} class="modal-overlay" onclick={`closeRutinaModal('${item.id}')`}>
+            <div class="modal-content" onclick="event.stopPropagation()">
+              <button class="modal-close" onclick={`closeRutinaModal('${item.id}')`}>✕</button>
+              <h3 class="modal-title">{item.nombre}</h3>
+              <p class="modal-desc">{item.desc}</p>
+              <h4>Galería de Ejercicios</h4>
+              <div class="modal-gallery">
+                {item.galeria.map((imgUrl) => (
+                  <div class="gallery-img-box">
+                    <img src={imgUrl} alt={item.nombre} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
       </section>
 
+      <!-- Bebidas / Bar (Categorizado) -->
+      <section class="section" id="bebidas">
+        <h2>BEBIDAS Y SUPLEMENTOS</h2>
+        <p class="subtitle">Selecciona una categoría para conocer nuestras marcas disponibles</p>
+        
+        <div class="bebidas-grid">
+          {bebidas.map((cat) => (
+            <div class="bebida-card" onclick={`openBebidaModal('${cat.id}')`}>
+              <div class="bebida-img-container">
+                <img src={cat.img} alt={cat.nombre} />
+              </div>
+              <div class="bebida-info">
+                <h3>{cat.nombre}</h3>
+                <span class="btn-ver-marcas">Ver marcas ➔</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Modales / Vistas de Detalle para Bebidas -->
+        {bebidas.map((cat) => (
+          <div id={`modal-bebida-${cat.id}`} class="modal-overlay" onclick={`closeBebidaModal('${cat.id}')`}>
+            <div class="modal-content" onclick="event.stopPropagation()">
+              <button class="modal-close" onclick={`closeBebidaModal('${cat.id}')`}>✕</button>
+              <h3 class="modal-title">{cat.nombre}</h3>
+              <p class="subtitle">Marcas y productos disponibles en nuestro bar</p>
+              <div class="marcas-grid">
+                {cat.marcas.map((m) => (
+                  <div class="marca-item">
+                    <div class="marca-img-box">
+                      <img src={m.img} alt={m.nombre} />
+                    </div>
+                    <strong>{m.nombre}</strong>
+                    <p>{m.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      <!-- Horarios Reubicados Abajo -->
+      <section class="card horario-card" id="horarios">
+        <h2>HORARIO</h2>
+        <p class="subtitle">Nuestro horario de atención</p>
+        <ul>
+          {horarios.map((item) => (
+            <li>
+              <span class="dia-texto">{item.dia}</span>
+              <strong class="hora-texto">{item.hora}</strong>
+            </li>
+          ))}
+        </ul>
+        <div class="esperamos">¡Te esperamos!</div>
+      </section>
+
+      <!-- Ubicación -->
       <section class="section" id="ubicacion">
         <h2>UBICACIÓN</h2>
         <p class="subtitle">Barrio Camilo Ponce</p>
@@ -167,6 +260,7 @@ const areaBar = [
         </div>
       </section>
 
+      <!-- Footer -->
       <footer class="elegant-footer">
         <div class="footer-center">
           <img src="/logo.png" alt="MAU FITNESS Logo" class="footer-logo-center" />
@@ -182,6 +276,26 @@ const areaBar = [
         </div>
       </footer>
     </main>
+
+    <!-- Script sencillo para interactividad en cliente -->
+    <script is:inline>
+      function openRutinaModal(id) {
+        document.getElementById('modal-' + id).classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeRutinaModal(id) {
+        document.getElementById('modal-' + id).classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+      function openBebidaModal(id) {
+        document.getElementById('modal-bebida-' + id).classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeBebidaModal(id) {
+        document.getElementById('modal-bebida-' + id).classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    </script>
   </body>
 </html>
 
@@ -197,484 +311,116 @@ const areaBar = [
     --text-muted: #888888;
   }
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background-color: var(--bg-black); color: var(--text-white); padding: 16px; font-family: 'Plus Jakarta Sans', sans-serif; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .orange { color: var(--orange-brand); }
 
-  body {
-    background-color: var(--bg-black);
-    color: var(--text-white);
-    padding: 16px;
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .orange {
-    color: var(--orange-brand);
-  }
-
+  /* Navbar */
   .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 20px;
+    padding: 18px 24px;
     background: var(--card-bg);
-    border-radius: 12px;
+    border-radius: 16px;
     margin-bottom: 20px;
     border: 1px solid var(--border-color);
   }
-
-  .logo-container {
-    display: flex;
-    align-items: center;
-  }
-
   .brand-logo {
-    height: 60px;
+    height: 95px; /* Logo ampliado significativamente */
     width: auto;
     object-fit: contain;
     mix-blend-mode: screen;
   }
-
-  .nav-links {
-    display: flex;
-    gap: 16px;
-  }
-
-  .nav-links a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: color 0.2s ease;
-  }
-
-  .nav-links a:hover, .nav-links a.active {
-    color: var(--orange-brand);
-  }
-
-  .social-icons-top {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-
+  .social-icons-top { display: flex; gap: 12px; }
   .social-icons-top a {
     color: var(--text-white);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    background: var(--card-inner);
-    border-radius: 50%;
-    border: 1px solid var(--border-color);
-    transition: all 0.2s ease;
+    display: flex; align-items: center; justify-content: center;
+    width: 42px; height: 42px; background: var(--card-inner);
+    border-radius: 50%; border: 1px solid var(--border-color);
   }
 
-  .social-icons-top a:hover {
-    color: var(--orange-brand);
-    border-color: var(--orange-brand);
-    transform: translateY(-2px);
-  }
-
+  /* Hero */
   .hero {
     background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.95)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop') center/cover;
-    border-radius: 16px;
-    padding: 40px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 20px;
-    min-height: 320px;
-    border: 1px solid var(--border-color);
+    border-radius: 16px; padding: 40px 30px; display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; border: 1px solid var(--border-color);
   }
-
-  .hero-content h1 {
-    font-size: 2.5rem;
-    line-height: 1.15;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    margin-bottom: 8px;
-  }
-
-  .hero-content p {
-    color: var(--text-muted);
-    font-size: 1.05rem;
-    font-weight: 500;
-  }
-
+  .hero-content h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; }
+  .hero-content p { color: var(--text-muted); }
   .btn-orange {
-    background: var(--orange-brand);
-    color: #000000;
-    padding: 12px 24px;
-    border-radius: 24px;
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 0.9rem;
-    display: inline-block;
-    box-shadow: 0 4px 18px rgba(255, 165, 0, 0.35);
-    transition: all 0.2s ease;
-    text-align: center;
+    background: var(--orange-brand); color: #000; padding: 12px 24px; border-radius: 24px; font-weight: 800; text-decoration: none; display: inline-block; text-align: center;
   }
 
-  .btn-orange:hover {
-    background: var(--orange-hover);
-    transform: translateY(-2px);
+  /* Secciones generales */
+  .section, .card {
+    background: var(--card-bg); border-radius: 16px; padding: 24px; margin-bottom: 20px; border: 1px solid var(--border-color);
   }
+  .section h2, .card h2 { font-size: 1.2rem; font-weight: 800; color: var(--orange-brand); margin-bottom: 4px; }
+  .subtitle { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 16px; }
 
-  .subtitle {
-    color: var(--text-muted);
-    font-size: 0.88rem;
-    margin-bottom: 16px;
-  }
+  /* Planes */
+  .planes-container { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .plan { background: var(--card-inner); border-radius: 12px; padding: 16px; border: 1px solid var(--border-color); border-top: 3px solid var(--orange-brand); }
+  .plan h3 { font-size: 0.88rem; font-weight: 800; margin-bottom: 12px; }
+  .plan-row { display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 8px; color: var(--text-muted); }
+  .plan-row strong { color: var(--orange-brand); }
 
-  .info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 20px;
-  }
+  /* Rutinas Grid */
+  .rutinas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .rutina-card { cursor: pointer; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); transition: transform 0.2s ease; }
+  .rutina-card:hover { transform: translateY(-4px); }
+  .rutina-img-bg { height: 220px; background-size: cover; background-position: center; padding: 14px; display: flex; flex-direction: column; justify-content: space-between; }
+  .rutina-badge { background: var(--orange-brand); color: #000; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 12px; align-self: flex-end; }
+  .rutina-title-box h3 { font-size: 1.2rem; font-weight: 800; color: #fff; }
 
-  .card {
-    background: var(--card-bg);
-    border-radius: 16px;
-    padding: 24px;
-    border: 1px solid var(--border-color);
-  }
+  /* Bebidas Grid */
+  .bebidas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .bebida-card { background: var(--card-inner); border-radius: 12px; padding: 16px; border: 1px solid var(--border-color); text-align: center; cursor: pointer; }
+  .bebida-img-container { height: 130px; background: #fff; border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 10px; margin-bottom: 12px; }
+  .bebida-img-container img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .bebida-info h3 { font-size: 1rem; color: #fff; margin-bottom: 6px; }
+  .btn-ver-marcas { color: var(--orange-brand); font-size: 0.85rem; font-weight: 700; }
 
-  .card h2, .section h2 {
-    font-size: 1.2rem;
-    font-weight: 800;
-    margin-bottom: 4px;
-    color: var(--orange-brand);
-    letter-spacing: 0.3px;
-  }
+  /* Modales / Popups de detalle */
+  .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); display: none; align-items: center; justify-content: center; z-index: 9999; padding: 20px; }
+  .modal-overlay.active { display: flex; }
+  .modal-content { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; max-width: 650px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 24px; position: relative; }
+  .modal-close { position: absolute; top: 16px; right: 16px; background: var(--card-inner); border: 1px solid var(--border-color); color: #fff; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-weight: bold; }
+  .modal-title { color: var(--orange-brand); font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; }
+  .modal-desc { color: var(--text-white); font-size: 0.92rem; line-height: 1.5; margin-bottom: 20px; }
+  .modal-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
+  .gallery-img-box img { width: 100%; height: 110px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); }
+  
+  .marcas-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 14px; }
+  .marca-item { background: var(--card-inner); border-radius: 10px; padding: 14px; border: 1px solid var(--border-color); text-align: left; }
+  .marca-img-box { width: 100%; height: 140px; background: #fff; border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 10px; margin-bottom: 10px; }
+  .marca-img-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .marca-item strong { color: var(--orange-brand); display: block; margin-bottom: 4px; }
+  .marca-item p { color: var(--text-muted); font-size: 0.85rem; }
 
+  /* Horarios */
   .horario-card ul { list-style: none; }
-  .horario-card li {
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--border-color);
-    font-size: 0.92rem;
-    gap: 10px;
-  }
+  .horario-card li { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border-color); font-size: 0.92rem; }
+  .esperamos { margin-top: 16px; color: var(--orange-brand); font-style: italic; font-weight: 700; }
 
-  .esperamos {
-    margin-top: 16px;
-    color: var(--orange-brand);
-    font-style: italic;
-    font-weight: 700;
-    font-size: 0.9rem;
-  }
-
-  .planes-container { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 14px; 
-  }
-
-  .plan { 
-    background: var(--card-inner); 
-    border-radius: 12px; 
-    padding: 16px; 
-    border: 1px solid var(--border-color); 
-    border-top: 3px solid var(--orange-brand);
-    transition: all 0.25s ease;
-  }
-
-  .plan:hover {
-    border-color: var(--orange-brand);
-    transform: translateY(-3px);
-  }
-
-  .plan h3 { 
-    font-size: 0.88rem; 
-    font-weight: 800; 
-    margin-bottom: 12px; 
-    color: var(--text-white); 
-  }
-
-  .plan-row { 
-    display: flex; 
-    justify-content: space-between; 
-    font-size: 0.88rem; 
-    margin-bottom: 8px; 
-    color: var(--text-muted); 
-  }
-
-  .plan-row strong { 
-    color: var(--orange-brand); 
-  }
-
-  .section {
-    background: var(--card-bg);
-    border-radius: 16px;
-    padding: 24px;
-    margin-bottom: 20px;
-    border: 1px solid var(--border-color);
-  }
-
-  .grid-gallery-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-
-  .gallery-item {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: var(--card-inner);
-    height: 200px;
-    border-radius: 12px;
-    display: flex;
-    align-items: flex-end;
-    padding: 12px;
-    position: relative;
-    border: 1px solid var(--border-color);
-    overflow: hidden;
-  }
-
-  .fuerza-bg {
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.2)), url('https://www.basic-fit.com/on/demandware.static/-/Library-Sites-basic-fit-shared-library/default/dw6df7ec4a/Blogs/weight%20lifting%20women.jpg');
-    background-position: center;
-  }
-
-  .cardio-bg {
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.2)), url('https://media.revistagq.com/photos/61351490db3cd3f3932450c1/1:1/w_2000,h_2000,c_limit/GettyImages-1277242858.jpg');
-    background-position: top center;
-  }
-
-  .tonificacion-bg {
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.2)), url('https://www.shutterstock.com/image-photo/older-woman-exercising-on-suspension-260nw-2696086219.jpg');
-    background-position: center;
-  }
-
-  .overlay-text {
-    font-size: 0.95rem;
-    font-weight: 700;
-    background: rgba(10, 10, 10, 0.85);
-    backdrop-filter: blur(4px);
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-    border-radius: 8px;
-    color: var(--text-white);
-    border: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .bar-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 14px;
-  }
-
-  .bar-item {
-    background: var(--card-inner);
-    border-radius: 12px;
-    padding: 14px;
-    text-align: center;
-    border: 1px solid var(--border-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .bar-img-box {
-    width: 100%;
-    height: 120px;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #ffffff;
-    padding: 8px;
-  }
-
-  .bar-img-box img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
-
-  .bar-item span {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--text-white);
-  }
-
-  .map-container {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .map-action {
-    text-align: right;
-  }
-
-  .elegant-footer {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 35px 20px;
-    margin-top: 30px;
-    text-align: center;
-  }
-
-  .footer-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .footer-logo-center {
-    height: 110px;
-    width: auto;
-    object-fit: contain;
-    mix-blend-mode: screen;
-  }
-
-  .footer-motto {
-    color: var(--orange-brand);
-    font-weight: 700;
-    font-size: 0.95rem;
-  }
-
-  .footer-social-links {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .footer-social-links a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.88rem;
-    font-weight: 600;
-  }
-
+  /* Footer */
+  .elegant-footer { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 35px 20px; text-align: center; }
+  .footer-center { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .footer-logo-center { height: 100px; width: auto; object-fit: contain; mix-blend-mode: screen; }
+  .footer-motto { color: var(--orange-brand); font-weight: 700; }
+  .footer-social-links { display: flex; gap: 10px; }
+  .footer-social-links a { color: var(--text-muted); text-decoration: none; font-size: 0.88rem; }
   .dot { color: var(--border-color); }
-  .copy-text {
-    color: var(--text-muted);
-    font-size: 0.78rem;
-  }
-
-  /* =========================================================
-     AJUSTES RESPONSIVOS PARA MÓVILES Y TABLETS (MEJORADOS)
-     ========================================================= */
-
-  @media (max-width: 900px) {
-    .info-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .bar-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
+  .copy-text { color: var(--text-muted); font-size: 0.78rem; }
 
   @media (max-width: 680px) {
-    body {
-      padding: 8px;
-    }
-
-    .navbar {
-      flex-direction: column;
-      gap: 12px;
-      padding: 14px;
-      text-align: center;
-    }
-
-    .nav-links {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px 12px;
-    }
-
-    .nav-links a {
-      font-size: 0.8rem;
-    }
-
-    .hero {
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 16px;
-      padding: 24px 16px;
-      min-height: auto;
-    }
-
-    .hero-content h1 {
-      font-size: 1.6rem;
-    }
-
-    .hero-content p {
-      font-size: 0.9rem;
-    }
-
-    .hero-card, .btn-orange {
-      width: 100%;
-    }
-
-    .planes-container {
-      grid-template-columns: 1fr;
-    }
-
-    .grid-gallery-3 {
-      grid-template-columns: 1fr;
-    }
-
-    .gallery-item {
-      height: 160px;
-    }
-
-    .bar-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-
-    .bar-img-box {
-      height: 90px;
-    }
-
-    .map-action {
-      text-align: center;
-    }
-
-    /* Corrección clave para que en móviles los horarios salgan ordenados */
-    .horario-card li {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 2px;
-      padding: 10px 0;
-    }
-
-    .horario-card li span {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
-
-    .horario-card li strong {
-      color: var(--orange-brand);
-      font-size: 0.95rem;
-    }
-
-    .footer-logo-center {
-      height: 80px;
-    }
+    body { padding: 10px; }
+    .brand-logo { height: 70px; }
+    .hero { flex-direction: column; gap: 20px; padding: 24px 16px; }
+    .hero-content h1 { font-size: 1.8rem; }
+    .planes-container, .rutinas-grid, .bebidas-grid { grid-template-columns: 1fr; }
+    .modal-gallery { grid-template-columns: 1fr; }
+    .horario-card li { flex-direction: column; align-items: flex-start; gap: 4px; }
   }
 </style>
