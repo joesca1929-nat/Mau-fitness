@@ -83,12 +83,10 @@ const horarios = [
   </head>
   <body>
     <main class="container">
-      <!-- Sección Hero Unificada (Logo centrado, redes, texto y botón en un solo bloque continuo) -->
-      <section class="hero-unificado">
-        <div class="header-top-content">
-          <div class="logo-container">
-            <img src="/logo.png" alt="MAU FITNESS Logo" class="brand-logo" />
-          </div>
+      <!-- Portada Unificada (Un solo bloque con fondo de imagen y contenido integrado) -->
+      <section class="hero-portada-unica">
+        <div class="portada-centro">
+          <img src="/logo.png" alt="MAU FITNESS Logo" class="brand-logo" />
           <div class="social-icons-center">
             <a href="https://www.instagram.com/maufitness.co/" target="_blank" rel="noopener noreferrer" title="Instagram" class="social-btn">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
@@ -99,7 +97,7 @@ const horarios = [
           </div>
         </div>
 
-        <div class="hero-bottom-content">
+        <div class="portada-inferior">
           <div class="hero-text">
             <h1>DISCIPLINA HOY, <br /><span class="orange">RESULTADOS MAÑANA</span></h1>
             <p>Tu mejor versión comienza aquí.</p>
@@ -338,28 +336,32 @@ const horarios = [
   .container { max-width: 1200px; margin: 0 auto; }
   .orange { color: var(--orange-brand); }
 
-  /* Bloque Hero Unificado (Sin divisiones ni cuadrados separados) */
-  .hero-unificado {
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.92)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop') center/cover;
+  /* Portada Única e Imponente (Un solo bloque completo sin cuadrados separados) */
+  .hero-portada-unica {
+    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop') center/cover;
     border-radius: 16px;
-    padding: 35px 30px;
+    padding: 45px 40px;
     margin-bottom: 20px;
     border: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    justify-content: space-between;
+    min-height: 520px;
   }
 
-  .header-top-content {
+  .portada-centro {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 16px;
+    text-align: center;
+    margin-bottom: 25px;
   }
 
   .brand-logo {
-    height: 240px;
-    max-height: 70vh;
+    height: 190px;
+    max-height: 55vh;
     width: auto;
     object-fit: contain;
     mix-blend-mode: screen;
@@ -376,9 +378,10 @@ const horarios = [
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 48px;
-    height: 48px;
-    background: var(--card-inner);
+    width: 46px;
+    height: 46px;
+    background: rgba(18, 18, 18, 0.75);
+    backdrop-filter: blur(4px);
     border-radius: 50%;
     border: 1px solid var(--border-color);
     transition: all 0.2s ease;
@@ -387,22 +390,22 @@ const horarios = [
     background: var(--orange-brand);
     color: #000;
     border-color: var(--orange-brand);
-    transform: translateY(-3px) scale(1.05);
+    transform: translateY(-3px) scale(1.08);
   }
   .social-btn:active {
-    transform: translateY(1px) scale(0.95);
+    transform: translateY(1px) scale(0.94);
   }
 
-  .hero-bottom-content {
+  .portada-inferior {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
     padding-top: 25px;
   }
 
-  .hero-text h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; }
-  .hero-text p { color: var(--text-muted); }
+  .hero-text h1 { font-size: 2.6rem; font-weight: 800; margin-bottom: 8px; line-height: 1.15; }
+  .hero-text p { color: var(--text-muted); font-size: 1.05rem; }
 
   .btn-orange {
     background: var(--orange-brand);
@@ -495,11 +498,12 @@ const horarios = [
 
   @media (max-width: 680px) {
     body { padding: 10px; }
-    .hero-unificado { padding: 24px 16px; gap: 24px; }
-    .brand-logo { height: 160px; }
-    .hero-bottom-content { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .hero-portada-unica { padding: 30px 16px; min-height: 450px; }
+    .brand-logo { height: 140px; }
+    .portada-inferior { flex-direction: column; align-items: flex-start; gap: 20px; }
     .hero-text h1 { font-size: 1.8rem; }
     .planes-grid, .rutinas-grid, .bebidas-grid { grid-template-columns: 1fr; }
     .modal-gallery { grid-template-columns: 1fr; }
     .horario-card li { flex-direction: column; align-items: flex-start; gap: 4px; }
   }
+</style>
